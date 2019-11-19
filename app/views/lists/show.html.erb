@@ -1,0 +1,16 @@
+<h3> <%= @list.name %> </h3>
+<hr />
+  <h5> Items: </h5>
+    <ul>
+      <% @list.items.each do |item| %>
+       <li>
+        <%= item.name %> - $<%= item.price %>
+       </li>
+       <%= link_to "Edit Item", edit_list_item_path(@list,item) %>
+       <%= link_to "Delete Item", list_item_path(@list, item), method: :delete %>
+        <% end %>
+    </ul>
+  <hr />
+<%= link_to "New Item", new_list_item_path(@list) %>
+<%= link_to "Back", lists_path %>
+

@@ -1,0 +1,13 @@
+    <h3> All Items </h3>
+      <ul>
+        <% @items.each do |item| %>
+          <li>
+            <%= item.name %>
+          </li>
+          <%= link_to "View Item", list_item_path(@list, item) %>
+          <%= link_to "Edit Item", edit_list_item_path(@list, item) %>
+          <%= link_to "Delete Item", list_path(@list, item), method: :delete %>
+        <% end %>
+      </ul>
+  <hr />
+<%= link_to "Add Item", new_list_item_path %>
